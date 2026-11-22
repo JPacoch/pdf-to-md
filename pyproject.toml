@@ -1,0 +1,30 @@
+[project]
+name = "pdf-to-md"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "JPacoch", email = "pacochp@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "docling[rapidocr]>=2.151.1",
+    "pymupdf>=2.1",
+]
+
+[project.scripts]
+pdf-to-md = "pdf_to_md:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: end-to-end integration tests requiring Docling model inference",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
